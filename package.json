@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Muath01/chatApp/issues"
   },
-  "homepage": "https://github.com/Muath01/chatApp#readme"
+  "homepage": "https://github.com/Muath01/chatApp#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
