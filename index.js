@@ -2,10 +2,20 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
 app.get("/",(req,res) =>{
-    console.log("hi")
     res.sendFile(__dirname + "/index.html")
+})
+
+io.on("connection", (socket) =>{
+    socket.on("chat message", (msg) =>{
+        io.emit("chat message", msg)
+    })
+    socket.on("disconnect", ()=>{
+        console.log("user diconnected 2")
+    })
 })
 
 server.listen(3000, ()=>{
